@@ -1,0 +1,2 @@
+ErrorDocument 404 /cld7418/235/error/error.html
+DirectoryIndex noterror.html

@@ -1,0 +1,22 @@
+#header{
+    color:#124559; 
+    background: #d6d9ce;
+}
+h2{
+    color: #124559;
+    background: #d6d9ce;
+}
+p{
+    color:#01161E;
+}
+a{
+    color:#124559;
+}
+body{
+    background-color:#F3DAD8;
+}
+#selfie{
+    width:250px;
+    height:250px;
+    border:10px solid #F4C3C2;
+}
