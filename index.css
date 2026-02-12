@@ -1,22 +1,47 @@
 #header{
     color:#124559; 
-    background: #d6d9ce;
+    font-size: 2.5rem;
+    background-color: #d6d9ce;
 }
+
+header {
+    text-align:center;
+}
+
 h2{
     color: #124559;
     background: #d6d9ce;
 }
+
 p{
     color:#01161E;
+    font-size: 1.1rem;
 }
+
+li{
+    color:#01161E;
+    font-size: 1.1rem;
+}
+
 a{
     color:#124559;
 }
+
 body{
     background-color:#F3DAD8;
+    margin: 0;
 }
+
+main{
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 5px 10px 10px 10px;
+    border:10px solid #F4C3C2;
+}
+
 #selfie{
     width:250px;
     height:250px;
     border:10px solid #F4C3C2;
+    /*box-shadow: 2px 5px 10px palevioletred*/
 }
