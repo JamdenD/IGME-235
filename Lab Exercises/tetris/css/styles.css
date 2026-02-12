@@ -1,0 +1,47 @@
+figure{
+    max-width:650px;
+    margin: 0 auto;
+}
+figure img{
+    width: 100%;
+}
+header, main, footer{
+    width: 90%;
+    margin: 0 auto;
+}
+#tetlist{
+    display: flex;
+    flex-flow: row wrap;
+}
+.tet-long,
+.tet,
+.tet-square{
+    flex: 0 0 250px;
+    border: 1px solid darkblue; 
+}
+.tet-long img{
+    width: 80%;
+    display:block;
+    margin: 0 auto;
+}
+.tet img{
+    width: 60%;
+    display:block;
+    margin: 0 auto;
+}
+.tet-square img{
+    width: 40%;
+    display:block;
+    margin: 0 auto;
+}
+.name{
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 3px 0;
+    text-align:center;
+}
+.aliases{
+    text-align: left;
+    margin: 1em;
+}

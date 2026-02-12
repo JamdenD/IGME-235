@@ -1,0 +1,25 @@
+/* Do everything in this file */
+h2{
+    border-bottom:3px solid red;
+    clear: right;
+}
+figure{
+    float:right;
+    width: 40%;
+    margin: 25px 50px;
+}
+div{
+    width:200px;
+    float:left;
+    border: 1.5px solid darkblue;
+}
+footer{
+    clear:left;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: -1;
+}
+
+
+
