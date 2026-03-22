@@ -30,9 +30,9 @@
 
 <div id="colorform">
 	<legend>Choose your favorite color!</legend>
-	<p><input type="radio" name="colorGroup" id="colorGroupRed" value="red" /> Red</p>
-	<p><input type="radio" name="colorGroup" id="colorGroupGreen" value="green" /> Green</p>
-	<p><input type="radio" name="colorGroup" id="colorGroupBlue" value="blue" /> Blue</p>
+	<p><input type="checkbox" name="colorGroup" id="colorGroupRed" value="red" /> Red</p>
+	<p><input type="checkbox" name="colorGroup" id="colorGroupGreen" value="green" /> Green</p>
+	<p><input type="checkbox" name="colorGroup" id="colorGroupBlue" value="blue" /> Blue</p>
 	<p><button id="colorButton" type="button">Submit</button></p>
 	<p id="info"></p>
 </div>
@@ -64,7 +64,6 @@ submit.addEventListener("click", () => {
 if (selected) {
 	info.innerHTML = `Your FINAL CHOICE is "${selected.value}"!`;
 	info.style.color = selected.value;
-	legend.style.color = selected.value;
 }
 
 });
