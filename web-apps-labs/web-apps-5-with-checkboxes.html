@@ -43,27 +43,37 @@ let legend = document.querySelector("legend");
 let submit = document.querySelector("#colorButton");
 
 /* Write your code here! */
-let redText = () => {info.innerHTML = "You have selected red!"; info.style.color = "red";};
-let greenText = () => {info.innerHTML = "You have selected green!"; info.style.color = "green";};
-let blueText = () => {info.innerHTML = "You have selected blue!"; info.style.color = "blue";};
+let redText = () => {info.innerHTML = "You have selected red!";};
+let greenText = () => {info.innerHTML = "You have selected green!";};
+let blueText = () => {info.innerHTML = "You have selected blue!";};
 
 let red = document.querySelector("#colorGroupRed");
 let green = document.querySelector("#colorGroupGreen");
 let blue = document.querySelector("#colorGroupBlue");
 
 document.querySelectorAll("input[name = 'colorGroup']").forEach(input => {
-	input.addEventListener("change", (e) => {
-		info.innerHTML = `You have selected ${e.target.value}!`;
-		info.style.color = e.target.value;
+	input.addEventListener("change", () => {
+		let selected = document.querySelectorAll("input[name='colorGroup']:checked");
+		
+		let colors = [];
+		selected.forEach(box => colors.push(box.value));
+
+        info.innerHTML = colors.length ? `You have selected ${colors.join(" and ")}!`: "";
 	});
 });
 
 submit.addEventListener("click", () => {
-	let selected = document.querySelector("input[name='colorGroup']:checked");
+	let checkboxes = document.querySelectorAll("input[name='colorGroup']");
+	let selectedColors = [];
 
-if (selected) {
-	info.innerHTML = `Your FINAL CHOICE is "${selected.value}"!`;
-	info.style.color = selected.value;
+checkboxes.forEach(box => {
+	if(box.checked) {
+		selectedColors.push(box.value);
+	}
+});
+
+if (selectedColors.length > 0) {
+	info.innerHTML = `Your FINAL CHOICE is ${selectedColors.join(" and ")}!`;
 }
 
 });

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Web Apps-5</title>
+	<style>
+		body{
+			font-family:sans-serif;
+		}
+		#colorform{
+			background-color:#dfecdf;
+			color: #111;
+			padding:1em;width:400px;
+		}
+		#colorform p#info{
+			background-color:white;
+			color: black;
+			width:300px;
+			height:100px;
+			padding:.5em;
+		}
+		
+		#colorform legend{ 
+			font-weight:bold;
+			font-size:1.2em;
+		}
+	</style>
+</head>
+<body>
+
+<div id="colorform">
+	<legend>Choose your favorite color!</legend>
+	<p><input type="radio" name="colorGroup" id="colorGroupRed" value="red" /> Red</p>
+	<p><input type="radio" name="colorGroup" id="colorGroupGreen" value="green" /> Green</p>
+	<p><input type="radio" name="colorGroup" id="colorGroupBlue" value="blue" /> Blue</p>
+	<p><button id="colorButton" type="button">Submit</button></p>
+	<p id="info"></p>
+</div>
+
+<script>
+let info = document.querySelector("#info");
+let legend = document.querySelector("legend");
+let submit = document.querySelector("#colorButton");
+
+/* Write your code here! */
+let redText = () => {info.innerHTML = "You have selected red!"; info.style.color = "red";};
+let greenText = () => {info.innerHTML = "You have selected green!"; info.style.color = "green";};
+let blueText = () => {info.innerHTML = "You have selected blue!"; info.style.color = "blue";};
+
+let red = document.querySelector("#colorGroupRed");
+let green = document.querySelector("#colorGroupGreen");
+let blue = document.querySelector("#colorGroupBlue");
+
+document.querySelectorAll("input[name = 'colorGroup']").forEach(input => {
+	input.addEventListener("change", (e) => {
+		info.innerHTML = `You have selected ${e.target.value}!`;
+		info.style.color = e.target.value;
+	});
+});
+
+submit.addEventListener("click", () => {
+	let selected = document.querySelector("input[name='colorGroup']:checked");
+
+if (selected) {
+	info.innerHTML = `Your FINAL CHOICE is "${selected.value}"!`;
+	info.style.color = selected.value;
+	legend.style.color = selected.value;
+}
+
+});
+
+</script>
+</body>
+</html>

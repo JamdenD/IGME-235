@@ -1,28 +1,27 @@
 /* Global Styles */
 body {
-  max-width: 1100px;
-  margin: 0 auto;
+  max-width: 100%;
+  margin : 0;
   background: #f5eee3;
-  padding: 2rem;
+  padding: 5vw;
+  box-sizing: border-box;
   font-family: Georgia, serif;
   line-height: 1.6;
   color: #333;
 }
 
-h1, h2, h3 {
-  margin: 0;
-}
-
 /* Overcomplicated header */
 header {
-  text-align: center;
+  display: flex;
+  justify-content:space-between;
+  align-items:flex-start;
   margin-bottom: 50px;
 }
 
 #title {
-  font-family: Arial, Georgia, sans-serif;
+  font-family: Arial, Georgia, serif;
   font-weight: 900;
-  font-size: 10rem;
+  font-size: clamp(3rem, 10vw, 8rem);
   display: flex;
   flex-wrap: wrap;
   align-items: start;
@@ -48,21 +47,53 @@ header {
 #quote {
   color: #C11B17;
   font-size: 1.5rem;
+  max-width: 25vw;
   margin-top: 1rem;
 }
 
-/* =======================
-   Main Grid Layout
-======================= */
+/*Main Grid Layout*/
 main {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
+  display: flex;
+  column-gap: 30px;
 }
 
-/* =======================
-   Section Styling
-======================= */
+#mini-golf,
+#collector,
+#book,
+#semper-fido {
+  flex:1;
+}
+
+#mini-golf {
+  order: 1;
+}
+
+#collector,
+#book {
+  flex:2;
+  display:block
+}
+
+#collector {
+  order:2;
+}
+
+#book {
+  order:3;
+}
+
+#semper-fido {
+  order: 4;
+}
+
+.middle-column {
+  display:flex;
+  flex-direction: column;
+  gap:30px;
+  flex:2;
+}
+
+/*Section Styling*/
 section {
   background: #f1e5d4;
   padding: 2rem;
@@ -73,34 +104,43 @@ section h3 {
   margin-bottom: 1rem;
 }
 
-/* =======================
-   Image + Text Layout
-======================= */
+/*Image + Text Layout*/
 #collector-body,
 #fido-body,
 #golf-body {
-  display: grid;
-  grid-template-columns: 1fr; /* stack on mobile */
+  display: block;
   gap: 1rem;
   align-items: start;
 }
 
-@media (min-width: 768px) {
-  #collector-body,
-  #fido-body,
-  #golf-body {
-    grid-template-columns: 2fr 1fr; /* side-by-side on larger screens */
+@media (max-width: 720px) {
+  main {
+    flex-direction: column;
   }
 }
 
-/* Images */
+/*Images*/
 img {
-  max-width: 100%;
+  width: 180px;  
   height: auto;
   border-radius: 4px;
+  display: inline-block;
+  margin: 0 12px 6px 0;
+  vertical-align: top;
 }
 
-/* Big Letters */
+#fido,
+#golf {
+  width: 25vw;
+  height: auto;
+}
+
+#cereal {
+  width: 30vw;
+  height: auto;
+}
+
+/*Big letters*/
 section p:first-of-type::first-letter {
   float: left;
   font-size: 60px;
