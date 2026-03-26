@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Random Phrases</title>
+</head>
+<style>
+    @font-face {
+        font-family: gothicHeader;
+        src: url(Chomsky.woff);
+    }
+    h1 {
+        font-family: gothicHeader;
+        color:white;
+        text-shadow: 5px 5px 5px black;
+    }
+    #mainSpace {
+        background-image:url('edgarAllanPoePic.png');   
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        width:80vw; 
+        height:600px; 
+        display:flex; 
+        flex-direction:column;
+        align-items: center;
+        margin: 0 auto;
+    }
+    header {
+        text-align:center; 
+        background-color: rgba(0,0,0,0.3); 
+        backdrop-filter:blur(5px); 
+        width:100%;
+    }
+    #quoteArea {
+        width: 50vw;
+        height: 200px;
+        text-align:center; 
+        /*background-color: rgba(0,0,0,0.3); */
+        color:white;
+        text-shadow: 5px 5px 5px black;
+    }
+    footer {
+        background-color: rgba(0,0,0,0.3); 
+        margin-top:auto;
+        color: white;
+    }
+    button {
+        background-color: black;
+        color: white;
+        border: 3px solid white;
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 2px;
+        text-align: center;
+        font-size: x-large;
+        display:block;
+        margin:0 auto;
+        margin-top:150px;
+        font-family: gothicHeader;
+    }
+    button:hover,
+    button:focus {
+        color: #dddddd;
+        border:3px solid #dddddd;
+        box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+    }
+    button:hover {
+        transform: translateY(-1px);
+    }
+    button:active {
+    box-shadow: rgba(0, 0, 0, .06) 0 2px 4px;
+    transform: translateY(0);
+    }
+
+</style>
+
+<body style = "background-color:rgb(157, 154, 154);">
+<div id = mainSpace>
+    <header>
+        <h1>Edgar Allan Poe Quotes</h1>
+    </header>
+    <main>
+        <div id="quoteArea">
+            <h2 id="quote"></h2>
+        </div>
+        <button type="button" onclick="displayQuote()">Click for gothic wisdom...</button>
+    </main>
+    <footer>
+        <p>Made by Camden Doyle</p>
+    </footer>
+</div>
+</body>
+<script>
+    let quotes = ["I became insane, with long intervals of horrible sanity.", 
+    "All that we see or seem is but a dream within a dream.", 
+    "There is no exquisite beauty.. without some strangeness in the proportion.",
+    "Those who dream by day are cognisant of many things which escape those who dream only by night.",
+    "We loved with a love that was more than love.",
+    "The death of a beautiful woman is, unquestionably, the most poetical topic in the world.",
+    "Words have no power to impress the mind without the exquisite horror of their reality.",
+    "Never to suffer would never to have been blessed.",
+    "believe nothing you hear, and only one half that you see."];
+
+    function displayQuote() {
+        let index = Math.floor(Math.random() * quotes.length);
+        let quote = quotes[index];
+
+        document.getElementById("quote").textContent = quote;
+    }
+
+    window.addEventListener("load", displayQuote);
+</script>
+</html>
