@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+    <title>Word Magnets</title>
+    <link rel="stylesheet" type="text/css" href="word-magnets.css">
+ 	<script>
+ 	// Yes the script tag is in the head section, leave it here.
+ 	
+ 	{ // ES6 Block Scope
+ 	
+    // 1
+    window.onload = function(){
+        setupStartingPoem();
+    }
+
+    // 2
+    function setupStartingPoem(){
+        setPosition(getWord("collapse"),150,100);
+    setPosition(getWord("ing"),214,100);
+    setPosition(getWord("bitter"),260,103);
+    setPosition(getWord("heart"),350,100);
+    setPosition(getWord("s"),396,100);
+
+    setPosition(getWord("dusk"),250,162);
+    setPosition(getWord("ly"),290,162);
+    setPosition(getWord("earth"),330,160);
+
+    setPosition(getWord("lonely"),260,230);
+    setPosition(getWord("lost"),290,280);
+    setPosition(getWord("love"),275,330);
+        // add more words
+    }
+
+    // 3
+    function setPosition(word,wordLeft,wordTop){
+        word.style.left = wordLeft + "px";
+        word.style.top = wordTop + "px";
+    }
+
+    // 4
+    function getWord(text){
+        let allWords = document.querySelectorAll(".word");
+        for (let word of allWords){
+            if (word.textContent == text){
+                return word; //returns matched word and breaks out of loop
+            }
+        }
+        //no match - the function will return undefined
+    }
+
+ 	
+ 	} // End ES6 Block Scope
+ 	</script>
+</head>
+<body>
+	<div id="container">
+    	<div id="fridge"></div>
+    	<div id="sidebar">
+    		<p class="titleWord" id="title1">Magnetic</p>
+    		<p class="titleWord" id="title2">Poetry</p>
+    		<p class="titleWord" id="title3">by</p>
+    		<p class="titleWord" id="title4">Camden</p>
+    		<p class="titleWord" id="title5">Doyle</p>
+    		
+    	</div>
+    </div>
+   	<p class="word">&</p>
+    <p class="word">a</p>
+    <p class="word">a</p>
+    <p class="word">about</p>
+    <p class="word">alone</p>
+    <p class="word">always</p>
+    <p class="word">am</p>
+    <p class="word">amontadillo</p>
+    <p class="word">an</p>
+    <p class="word">and</p>
+    <p class="word">are</p>
+    <p class="word">as</p>
+    <p class="word">at</p>
+    <p class="word">be</p>
+    <p class="word">beat</p>
+    <p class="word">believe</p>
+    <p class="word">between</p>
+    <p class="word">bitter</p>
+    <p class="word">black</p>
+    <p class="word">bone</p>
+    <p class="word">broken</p>
+    <p class="word">but</p>
+    <p class="word">by</p>
+    <p class="word">can</p>
+    <p class="word">cask</p>
+    <p class="word">cellar</p>
+    <p class="word">chamber</p>
+    <p class="word">cloud</p>
+    <p class="word">cold</p>
+    <p class="word">collapse</p>
+    <p class="word">come</p>
+    <p class="word">confusion</p>
+    <p class="word">crepuscular</p>
+    <p class="word">crow</p>
+    <p class="word">cry</p>
+    <p class="word">crypt</p>
+    <p class="word">d</p>
+    <p class="word">dark</p>
+    <p class="word">darkness</p>
+    <p class="word">dawn</p>
+    <p class="word">dead</p>
+    <p class="word">death</p>
+    <p class="word">depart</p>
+    <p class="word">did</p>
+    <p class="word">do</p>
+    <p class="word">down</p>
+    <p class="word">dread</p>
+    <p class="word">dream</p>
+    <p class="word">dream</p>
+    <p class="word">decayed</p>
+    <p class="word">dusk</p>
+    <p class="word">ed</p>
+    <p class="word">earth</p>
+    <p class="word">echo</p>
+    <p class="word">ed</p>
+    <p class="word">empty</p>
+    <p class="word">er</p>
+    <p class="word">es</p>
+    <p class="word">every</p>
+    <p class="word">evil</p>
+    <p class="word">eye</p>
+    <p class="word">face</p>
+    <p class="word">fall</p>
+    <p class="word">fear</p>
+    <p class="word">feel</p>
+    <p class="word">fill</p>
+    <p class="word">curse</p>
+    <p class="word">flower</p>
+    <p class="word">fly</p>
+    <p class="word">for</p>
+    <p class="word">forbode</p>
+    <p class="word">forest</p>
+    <p class="word">from</p>
+    <p class="word">full</p>
+    <p class="word">give</p>
+    <p class="word">goes</p>
+    <p class="word">grave</p>
+    <p class="word">gray</p>
+    <p class="word">half</p>
+    <p class="word">has</p>
+    <p class="word">have</p>
+    <p class="word">he</p>
+    <p class="word">hear</p>
+    <p class="word">heart</p>
+    <p class="word">her</p>
+    <p class="word">here</p>
+    <p class="word">hide</p>
+    <p class="word">him</p>
+    <p class="word">his</p>
+    <p class="word">hers</p>
+    <p class="word">hole</p>
+    <p class="word">how</p>
+    <p class="word">howl</p>
+    <p class="word">I</p>
+    <p class="word">I</p>
+    <p class="word">if</p>
+    <p class="word">imagination</p>
+    <p class="word">in</p>
+    <p class="word">in</p>
+    <p class="word">ing</p>
+    <p class="word">ing</p>
+    <p class="word">is</p>
+    <p class="word">is</p>
+    <p class="word">it</p>
+    <p class="word">kiss</p>
+    <p class="word">know</p>
+    <p class="word">lace</p>
+    <p class="word">leave</p>
+    <p class="word">light</p>
+    <p class="word">lightning</p>
+    <p class="word">like</p>
+    <p class="word">like</p>
+    <p class="word">live</p>
+    <p class="word">lonely</p>
+    <p class="word">lost</p>
+    <p class="word">love</p>
+    <p class="word">ly</p>
+    <p class="word">ly</p>
+    <p class="word">make</p>
+    <p class="word">man</p>
+    <p class="word">me</p>
+    <p class="word">melancholy</p>
+    <p class="word">midnight</p>
+    <p class="word">moon</p>
+    <p class="word">more</p>
+    <p class="word">mourn</p>
+    <p class="word">murmur</p>
+    <p class="word">must</p>
+    <p class="word">my</p>
+    <p class="word">my</p>
+    <p class="word">mystery</p>
+    <p class="word">nevermore</p>
+    <p class="word">night</p>
+    <p class="word">no</p>
+    <p class="word">no</p>
+    <p class="word">of</p>
+    <p class="word">of</p>
+    <p class="word">on</p>
+    <p class="word">only</p>
+    <p class="word">or</p>
+    <p class="word">our</p>
+    <p class="word">out</p>
+    <p class="word">pain</p>
+    <p class="word">pale</p>
+    <p class="word">people</p>
+    <p class="word">poet</p>
+    <p class="word">pound</p>
+    <p class="word">power</p>
+    <p class="word">quoth</p>
+    <p class="word">r</p>
+    <p class="word">raven</p>
+    <p class="word">s</p>
+    <p class="word">s</p>
+    <p class="word">scream</p>
+    <p class="word">see</p>
+    <p class="word">shadow</p>
+    <p class="word">she</p>
+    <p class="word">shiver</p>
+    <p class="word">shroud</p>
+    <p class="word">shudder</p>
+    <p class="word">silent</p>
+    <p class="word">sing</p>
+    <p class="word">skin</p>
+    <p class="word">sky</p>
+    <p class="word">so</p>
+    <p class="word">some</p>
+    <p class="word">soul</p>
+    <p class="word">spirit</p>
+    <p class="word">spoke</p>
+    <p class="word">storm</p>
+    <p class="word">strange</p>
+    <p class="word">tell-tale</p>
+    <p class="word">than</p>
+    <p class="word">that</p>
+    <p class="word">the</p>
+    <p class="word">the</p>
+    <p class="word">then</p>
+    <p class="word">there</p>
+    <p class="word">they</p>
+    <p class="word">this</p>
+    <p class="word">though</p>
+    <p class="word">through</p>
+    <p class="word">thunder</p>
+    <p class="word">thus</p>
+    <p class="word">thus</p>
+    <p class="word">to</p>
+    <p class="word">too</p>
+    <p class="word">truth</p>
+    <p class="word">try</p>
+    <p class="word">unknown</p>
+    <p class="word">unseen</p>
+    <p class="word">up</p>
+    <p class="word">us</p>
+    <p class="word">use</p>
+    <p class="word">walk</p>
+    <p class="word">was</p>
+    <p class="word">we</p>
+    <p class="word">were</p>
+    <p class="word">which</p>
+    <p class="word">whisper</p>
+    <p class="word">white</p>
+    <p class="word">who</p>
+    <p class="word">why</p>
+    <p class="word">will</p>
+    <p class="word">wine</p>
+    <p class="word">with</p>
+    <p class="word">within</p>
+    <p class="word">woman</p>
+    <p class="word">would</p>
+    <p class="word">would</p>
+    <p class="word">y</p>
+    <p class="word">you</p>
+    <p class="word">young</p>
+</body>
+</html>
