@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>PixiJS-1</title>
+        <script src="https://pixijs.download/release/pixi.min.js"></script>
+    </head>
+    <body>
+    <script type="module">
+      // #1 - Create a new Pixi application
+      // https://pixijs.download/release/docs/app.Application.html
+        const app = new PIXI.Application();
+        await app.init({ width: 640, height: 360 });
+
+      // #2 - Append its "view" (a <canvas> tag that it created for us) to the DOM
+        document.body.appendChild(app.canvas);
+
+        const square = new PIXI.Graphics();
+        square.rect(0,0,40,40);
+        square.fill(0xff0000);
+        square.x = 25;
+        square.y = 25;
+        square.stroke({width:2,color:0xffff00,alpha:1});
+
+        app.stage.addChild(square);
+    </script>
+    </body>
+</html>
