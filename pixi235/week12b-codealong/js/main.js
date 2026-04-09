@@ -54,4 +54,8 @@ async function setup() {
     }
 }
 
+//app.ticker.add(( => {
+//    
+//}))
+
 //helper functions can go here
