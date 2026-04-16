@@ -2,19 +2,19 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
- 	<title>Giphy Finder</title>
+ 	<title>Pokedopt</title>
 	<link rel="stylesheet" type="text/css" href="styles/main.css">;
 	<script src="js/main.js"></script>
 </head>
 <body>
 <header>
-	<h1>Giphy Finder</h1>
+	<h1>Pokedopt</h1>
 </header>
 
-<div class="widgets">
+<!--<div class="widgets">
 	Search Term -> 
-	<input id="searchterm" type="text" size="20" maxlength="20" autofocus value="cats" />
-</div>
+	<input id="searchterm" type="text" size="20" maxlength="20" autofocus value="" />
+</div>-->
 
 <div class="widgets">
 	Max # results -> 
@@ -25,10 +25,66 @@
 		<option value="50">50</option>
 		<option value="100">100</option>
 	</select>
+
+	<select id="type">
+		<option value="any">any</option>
+		<option value="normal">normal</option>
+		<option value="fighting">fighting</option>
+		<option value="flying">flying</option>
+		<option value="poison">poison</option>
+		<option value="ground">ground</option>
+		<option value="rock">rock</option>
+		<option value="bug">bug</option>
+		<option value="ghost">ghost</option>
+		<option value="steel">steel</option>
+		<option value="fire">fire</option>
+		<option value="water">water</option>
+		<option value="grass">grass</option>
+		<option value="electric" selected>electric</option>
+		<option value="psychic">psychic</option>
+		<option value="ice">ice</option>
+		<option value="dragon">dragon</option>
+		<option value="dark">dark</option>
+		<option value="fairy">fairy</option>
+		<option value="stellar">stellar</option>
+		<option value="unknown">unknown</option>
+	</select>
+
+	<select id="egg-group">
+		<option value="any">any</option>
+		<option value="monster" selected>monster</option>
+		<option value="bug">bug</option>
+		<option value="flying">flying</option>
+		<option value="ground">ground</option>
+		<option value="fairy">fairy</option>
+		<option value="plant">plant</option>
+		<option value="water-1">water-1</option>
+		<option value="water-2">water-2</option>
+		<option value="water-3">water-3</option>
+		<option value="humanshape">humanshape</option>
+		<option value="mineral">mineral</option>
+		<option value="indeterminate">indeterminate</option>
+		<option value="ditto">ditto</option>
+		<option value="dragon">dragon</option>
+		<option value="no-egg">no-egg</option>
+	</select>
+
+	<select id="generation">
+		<option value="any">any</option>
+		<option value="gen-I" selected>gen-I</option>
+		<option value="gen-II">gen-II</option>
+		<option value="gen-III">gen-III</option>
+		<option value="gen-IV">gen-IV</option>
+		<option value="gen-V">gen-V</option>
+		<option value="gen-VI">gen-VI</option>
+		<option value="gen-VII">gen-VII</option>
+		<option value="gen-VIII">gen-VIII</option>
+		<option value="gen-IX">gen-IX</option>
+	</select>
 </div>
 
 <div class="widgets">
-	<button type="button" id="search" class="green">Find some GIFs!<br />:-)</button>
+	<button type="button" id="search" class="green">Find a Pokemon to adopt!<br />:-)</button>
 </div>
 <div id="status">Ready to Search!</div>
 <hr>

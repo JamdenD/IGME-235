@@ -1,55 +1,26 @@
- // 1
-window.onload = (e) => {document.querySelector("#search").onclick = searchButtonClicked};
+window.onload = (e) => {document.querySelector("#search").onclick = searchWithFilters;};
 	
-	// 2
 	let displayTerm = "";
 	
-	// 3
 	function searchButtonClicked(){
 		console.log("searchButtonClicked() called");
-		
-    //1
-    const GIPHY_URL = "https://api.giphy.com/v1/gifs/search?";
 
-    //2
-    //Public API key from here: https://developers.giphy.com/docs/
-    //If this one no longer works, you can get your own for free
-    let GIPHY_KEY = "0A7RCuDq4zJZvfkd4IBV1v3I8zUyF7qB";
+		let term = document.querySelector("#searchterm").value;
+	displayTerm = term;
 
-    //3 - build up our URL string
-    let url = GIPHY_URL;
-    url += "api_key=" + GIPHY_KEY;
+	term = term.trim().toLowerCase();
 
-    //4 - parse the user entered term we wish to search
-    let term = document.querySelector("#searchterm").value;
-    displayTerm = term;
+	if (term.length < 1) return;
 
-    //5 - get rid of any leading and trailing spaces
-    term = term.trim();
+	// PokéAPI endpoint
+	let url = `https://pokeapi.co/api/v2/pokemon/${term}`;
 
-    //6 - encode spaces and special characters
-    term = encodeURIComponent(term);
 
-    //7 - if there's no term to search then bail out of the function (return does this)
-    if (term.length < 1) return;
+    document.querySelector("#status").innerHTML = `<b>Searching for '${displayTerm}'</b>`;
+	document.querySelector("#content").innerHTML = `<img src="images/spinner.gif" alt="loading">`;
 
-    //8 - append the search term to the URL - the parameter name is 'q'
-    url += "&q=" + term;
-
-    //9 - grab the user chosen search 'limit' from the <select> and append it to the URL
-    let limit = document.querySelector("#limit").value;
-    url += "&limit=" + limit;
-
-    //10 - update the UI
-    document.querySelector("#status").innerHTML = "<b>Searching for '" + displayTerm + "'</b>";
-
-    //11 - see what the URL looks like
-    console.log(url);
-
-    document.querySelector("#content").innerHTML = `<img src="images/spinner.gif" alt="loading">`;
-
-	// 12 Request data!
 	getData(url);
+
 	}
 
 	function getData(url){
@@ -69,78 +40,101 @@ window.onload = (e) => {document.querySelector("#search").onclick = searchButton
 
 	// Callback Functions
 
-	function dataLoaded (e) {
-	//5 - event.target is the xhr object
-	let xhr = e.target;
+	function dataLoaded(e) {
+    let xhr = e.target;
 
-	//6 - xhr.responseText is the JSON  file we just downloaded
-	console.log(xhr.responseText);
+    let obj = JSON.parse(xhr.responseText);
 
-	//7 - turn the text into a parsable Javascript object
-	let obj = JSON.parse(xhr.responseText);
+    console.log(obj);
 
-	//8 - if there are no results, print a message and return
-	if(!obj.data || obj.data.length == 0) {
-		document.querySelector("#status").innerHTML = "<b>No results found for '" + displayTerm + "'</b>";
-		return; // Bail out
-	}
+    // Build display for ONE Pokémon
+    let name = obj.name.toUpperCase();
+    let image = obj.sprites.front_default;
+	let species = obj.species;
+	let gen = obj.gen;
+    let types = obj.types.map(t => t.type.name).join(", ");
 
-	//9 - Start building and HTML we will display to the user
-	let results = obj.data;
-	console.log("result.length =" + results.length);
-	//let bigString = "<p><i>Here are " + results.length + " results for '" + displayTerm + "'</i></p>";
-    let bigString = "";
+    let bigString = `
+        <div class="result">
+            <h3>${name}</h3>
+            <img src="${image}" alt="${name}">
+            <p><b>Type(s):</b> ${types}</p>
+        </div>
+    `;
 
-    document.querySelector("#status").innerHTML = `<b>Success!!</b> <Here><p><i>Here are ${results.length} results for ${displayTerm}</i></P>`;
+    document.querySelector("#content").innerHTML = bigString;
+    document.querySelector("#status").innerHTML = `<b>Success!</b>`;
+}
 
-	//10 - loop through the array of results 
-	for (let i=0; i<results.length; i++) {
-		let result = results[i];
+async function searchWithFilters() {
+    let type = document.querySelector("#type").value;
+    let generation = document.querySelector("#generation").value;
+    let eggGroup = document.querySelector("#egg-group").value;
 
-		//11 - get the URL to the GIF
-		let smallURL = result.images.fixed_width_downsampled.url;
-		if (!smallURL) smallURL = "images/no-image-found.png";
+    document.querySelector("#status").innerHTML = "Searching Pokemon...";
 
-		//12 - get the URL to the GIPHY page
-		let url = result.url;
+    try {
+        let results = [];
 
-		let rating = result.rating ? result.rating.toUpperCase() : "N/A";
+        // Fetch type
+        if (type) {
+            let res = await fetch(`https://pokeapi.co/api/v2/type/${type}`);
+            let data = await res.json();
+            results.push(data.pokemon.map(p => p.pokemon.name));
+        }
 
-		//13 - Build a <div> to hold each result
-		// ES6 String Templating
-		let line = 
-					`<div class = result><img src='${smallURL}' title= '${result.id}' />
-						<span>
-							<a target='_blank' href='${url}'>View on Giphy</a>
-							<p class="rating-value">Rating: ${rating} </p>
-						</span>
-					</div>
-				`;
+        // Fetch generation
+        if (generation) {
+            let res = await fetch(`https://pokeapi.co/api/v2/generation/${generation}`);
+            let data = await res.json();
+            results.push(data.pokemon_species.map(p => p.name));
+        }
 
-		//14 - another way of doing the same thing above
-		//Replaces this:
-		//var line = "<div class='result'>";
-		//		line += "<img src='";
-		//		line += smallURL;
-		//		line +="' title= '";
-		//		line += result.id;
-		//		line += "' />";
-		//
-		//		line += "<span><a target='_blank' href='" + url + "'>View on Giphy</a></span>";
-		//		line += "</div>";
+        // Fetch egg group
+        if (eggGroup) {
+            let res = await fetch(`https://pokeapi.co/api/v2/egg-group/${eggGroup}`);
+            let data = await res.json();
+            results.push(data.pokemon_species.map(p => p.name));
+        }
 
-		//15 - add the <div> to `bigString` and loop
-		bigString += line;
-	}
+        // Intersection
+        let finalList = results.reduce((a, b) => 
+            a.filter(x => b.includes(x))
+        );
 
-	//16 - all done building the HTML - show it to the user
-	document.querySelector("#content").innerHTML = bigString;
+		finalList = finalList.slice(0,limit);
 
-	//17 - update the status
-	//document.querySelector("#status").innerHTML = "<b>Success!</b>";
-	}
+        displayPokemonList(finalList);
+
+    } catch (err) {
+        document.querySelector("#status").innerHTML = "Error filtering Pokémon";
+        console.error(err);
+    }
+}
+
+function displayPokemonList(list) {
+    if (!list || list.length === 0) {
+        document.querySelector("#content").innerHTML = "<p>No matches found</p>";
+        return;
+    }
+
+    let html = "";
+
+    for (let name of list) {
+        html += `
+            <div class="result">
+                <p>${name.toUpperCase()}</p>
+            </div>
+        `;
+    }
+
+    document.querySelector("#content").innerHTML = html;
+    document.querySelector("#status").innerHTML = `Found ${list.length} Pokémon`;
+}
+
 
 	function dataError(e) {
-		console.log("An error occurred");
-	}
+    document.querySelector("#status").innerHTML = "<b>No Pokémon found. Try a real name like 'pikachu'</b>";
+}
+
 	
