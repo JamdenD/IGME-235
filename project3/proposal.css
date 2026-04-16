@@ -1,0 +1,31 @@
+@font-face {
+    font-family: 'Knewave';
+    src: url(Knewave-Regular.woff2) format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Jua';
+    src: url(Jua-Regular.woff2) format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+h1 {
+    font-family: "Jua", "Poppins", serif;
+    font-style: bold;
+    font-size: 64px;
+}
+
+h2,h3{
+    font-family: "Jua", "Arial", sans-serif;
+}
+
+p {
+    font-family: "Arial", sans-serif;
+}
+
+body {
+    background-color:
+}
