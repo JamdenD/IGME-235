@@ -16,10 +16,19 @@ h1 {
     font-family: "Jua", "Poppins", serif;
     font-style: bold;
     font-size: 64px;
+    color: #e2939a;
+    text-shadow: 5px 5px 5px #6d3e27;
 }
 
 h2,h3{
     font-family: "Jua", "Arial", sans-serif;
+    color: #1f2209;
+}
+
+hr {
+    border: none;
+    height: 4px;
+    background-color: #1f2209;
 }
 
 p {
@@ -27,5 +36,5 @@ p {
 }
 
 body {
-    background-color:
+    background-color: #9A5E40;
 }
