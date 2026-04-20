@@ -1,20 +1,93 @@
-{
-			font-family:verdana,tahoma,sans-serif;
+		@font-face {
+		    font-family: 'Pokemon-Solid';
+		    src: url(Pokemon-Solid.ttf) format('ttf');
+		    font-weight: normal;
+		    font-style: normal;
+		}
+		
+		body {
+		    margin: 0;
+		    font-family: "Nunito", "Segoe UI", "Helvetica Neue", sans-serif;
+		    background: #ffe8c9;
+		    color: #3c0505;
 		}
 	
- 		header{
- 			background: url(../images/cats.jpg);
- 			height:195px;
- 		}
+ 		header {
+		    background: linear-gradient(150deg, #ff7e7e, #ffdf60);
+		    height: 200px;
+		    display: flex;
+		    align-items: center;
+		    justify-content: center;
+		    border-bottom-left-radius: 20px;
+		    border-bottom-right-radius: 20px;
+		    box-shadow: 0 6px 20px rgba(179, 19, 19, 0.2);
+		}
+
+		header h1 {
+			font-family: "Pokemon-Solid";
+		    margin: 0;
+		    color: white;
+		    font-size: 120px;
+		    text-shadow: 5px 5px 0px rgba(112, 20, 20, 0.4);
+		}
+
+		h2,h3 {
+			font-family: "Pokemon-Solid";
+		}
+
+		select {
+			border-radius: 7px;
+		}
+
+		.result ul {
+   	 		padding-left: 15px;
+    		margin: 5px 0;
+    		font-size: 0.9em;
+		}
+
+		.result li {
+    		list-style-type: none;
+		}		
+
+		.type-badge {
+		    display: inline-block;
+		    padding: 2px 8px;
+		    margin: 3px;
+		    border-radius: 999px;
+		    font-size: 0.75em;
+		    font-weight: bold;
+		    color: white;
+		    letter-spacing: 0.5px;
+		    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+		}
+
+		.type-badge:hover {
+		    transform: scale(1.1);
+		}
+
+		.normal { background: #A8A878; }
+		.fire { background: #F08030; }
+		.water { background: #6890F0; }
+		.electric { background: #F8D030; color:black; }
+		.grass { background: #78C850; }
+		.ice { background: #98D8D8; color:black; }
+		.fighting { background: #C03028; }
+		.poison { background: #A040A0; }
+		.ground { background: #E0C068; color:black; }
+		.flying { background: #A890F0; }
+		.psychic { background: #F85888; }
+		.bug { background: #A8B820; }
+		.rock { background: #B8A038; }
+		.ghost { background: #705898; }
+		.dragon { background: #7038F8; }
+		.dark { background: #705848; }
+		.steel { background: #B8B8D0; color:black; }
+		.fairy { background: #EE99AC; }
  		
- 		header h1{
- 			margin:0;
- 			color:blue;
- 			text-align:center;
- 			font-size:100px;
- 			padding-top: 35px;
- 		}
- 		
+		.result p {
+    		margin: 6px 0;
+		}
+
  		#status{
  			font-style: italic;
  		}
@@ -28,77 +101,47 @@
 		}
 
 		.result {
-			display:flex;
-			flex-direction: column;
+		    background: rgb(255, 227, 227);
+		    border-radius: 20px;
+		    padding: 15px;
+		    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+		    transition: transform 0.2s ease, box-shadow 0.2s ease;
+		}
+
+		.result:hover {
+		    transform: translateY(-5px);
+		    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
 		}
 
 		.result img {
-			width:100%;
-			box-shadow: 0 10px 20px 0px rgba(0,0,0,0.4);
+		    width: 100%;
+		    border-radius: 14px;
+		    background: #f2f4ff;
 		}
 
 		.result span {
 			order:-1;
 		}
 
- 		/*.result {
-			position: relative;
-			height: 175px;
-			width: 100px;
-			float:left;
-			border:1px solid gray;
-			padding:5px;
-			margin-left:10px;
-			margin-bottom:10px;
+		.stats li {
+		    list-style: none;
+		    padding: 4px 6px;
+		}
+		
+		button {
+		    border-radius: 999px;
+		    padding: 12px 20px;
+		    font-size: 14px;
+		    transition: 0.2s ease;
+			background-color: #ff6b6b;
 		}
 
-		.result img {
-			position: absolute;
-			left: 5px;
-			bottom: 5px;
-			display:block;
-			
-		}
-		
-		.result span{
-			font-size:12px;
-			font-weight:bold;
-			display:block;
-		}
-		
-		.result audio{
-			width: 130px;
-		}*/
-		
-		button{
-		  display : inline-block;
-		  cursor : pointer;
-  
-		  border-style : solid;
-		  border-width : 1px;
-		  border-radius : 50px;
-		  padding : 10px 18px;
-		  box-shadow : 0 1px 4px rgba(0,0,0,.6);
-		  font-size : 9.5pt;
-		  font-weight : bold;
-		  color : #fff;
-		  text-shadow : 0 1px 3px rgba(0,0,0,.4);
-		  font-family : sans-serif;
-		  text-decoration : none;
-		}
-		
-		button.green{
-			border-color: #8fc800;
-	  		background: #8fc800;
-	  		background: linear-gradient(to top, #8fc800 0%,#438c00 100%);
-		}
-		
-		button:hover{
-			background: #8fDD00;
+		button:hover {
+		    transform: scale(1.05);
 		}
 		
 		button:active{
-			background: #8fFF00;
+			background: #c84141;
 			box-shadow : 0 0 6px rgba(0,0,0,.6);
 		}
 		

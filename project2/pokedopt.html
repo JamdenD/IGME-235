@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8" />
  	<title>Pokedopt</title>
-	<link rel="stylesheet" type="text/css" href="styles/main.css">;
+	<link rel="stylesheet" type="text/css" href="styles/main.css">
 	<script src="js/main.js"></script>
 </head>
 <body>
@@ -17,7 +17,7 @@
 </div>-->
 
 <div class="widgets">
-	Max # results -> 
+	<label for="limit">Max search limit -></label>
 	<select id="limit">
 		<option value="5">5</option>
 		<option value="10" selected>10</option>
@@ -26,6 +26,7 @@
 		<option value="100">100</option>
 	</select>
 
+	<label for="type">Pokémon type -></label>
 	<select id="type">
 		<option value="any">any</option>
 		<option value="normal">normal</option>
@@ -50,25 +51,21 @@
 		<option value="unknown">unknown</option>
 	</select>
 
-	<select id="egg-group">
-		<option value="any">any</option>
-		<option value="monster" selected>monster</option>
-		<option value="bug">bug</option>
-		<option value="flying">flying</option>
-		<option value="ground">ground</option>
-		<option value="fairy">fairy</option>
-		<option value="plant">plant</option>
-		<option value="water-1">water-1</option>
-		<option value="water-2">water-2</option>
-		<option value="water-3">water-3</option>
-		<option value="humanshape">humanshape</option>
-		<option value="mineral">mineral</option>
-		<option value="indeterminate">indeterminate</option>
-		<option value="ditto">ditto</option>
-		<option value="dragon">dragon</option>
-		<option value="no-egg">no-egg</option>
+	<label for="habitat">Pokémon habitat -></label>
+	<select id="habitat">
+    	<option value="any" selected>any</option>
+    	<option value="cave">cave</option>
+    	<option value="forest">forest</option>
+    	<option value="grassland">grassland</option>
+    	<option value="mountain">mountain</option>
+    	<option value="rare">rare</option>
+    	<option value="rough-terrain">rough-terrain</option>
+    	<option value="sea">sea</option>
+    	<option value="urban">urban</option>
+    	<option value="waters-edge">waters-edge</option>
 	</select>
 
+	<label for="generation">Pokémon gen -></label>
 	<select id="generation">
 		<option value="any">any</option>
 		<option value="gen-I" selected>gen-I</option>
@@ -84,7 +81,7 @@
 </div>
 
 <div class="widgets">
-	<button type="button" id="search" class="green">Find a Pokemon to adopt!<br />:-)</button>
+	<button type="button" id="search" class="green">Find a Pokemon to adopt!<br /><3</button>
 </div>
 <div id="status">Ready to Search!</div>
 <hr>
