@@ -10,25 +10,7 @@
 
     window.onload = function(){
         positionWords();
-        setupStartingPoem();
         setupDragging();
-    }
-
-    function setupStartingPoem(){
-        setPosition(getWord("collapse"),150,100);
-    setPosition(getWord("ing"),214,100);
-    setPosition(getWord("bitter"),260,103);
-    setPosition(getWord("heart"),350,100);
-    setPosition(getWord("s"),396,100);
-
-    setPosition(getWord("dusk"),250,162);
-    setPosition(getWord("ly"),290,162);
-    setPosition(getWord("earth"),330,160);
-
-    setPosition(getWord("lonely"),260,230);
-    setPosition(getWord("lost"),290,280);
-    setPosition(getWord("love"),275,330);
-    
     }
 
     function setPosition(word,wordLeft,wordTop){
@@ -70,13 +52,6 @@
 
             word.onmousedown = doMousedown;
         }
-
-        //make the title words draggable as well
-        document.querySelector("#title1").onmousedown=doMousedown;
-        document.querySelector("#title2").onmousedown=doMousedown;
-        document.querySelector("#title3").onmousedown=doMousedown;
-        document.querySelector("#title4").onmousedown=doMousedown;
-        document.querySelector("#title5").onmousedown=doMousedown;
 
     } //end positionWords
  	
