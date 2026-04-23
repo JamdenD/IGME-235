@@ -127,9 +127,9 @@
     }
 
 
-    // Functions for the add new item modal
+    // Functions for the add new item popup
     const add = document.getElementById("add");
-    const modal = document.getElementById("modal");
+    const modal = document.getElementById("popup");
     const closeButton = document.getElementById("closeButton");
     const itemType = document.getElementById("itemType");
     const subItem = document.getElementById("subItem");
@@ -143,12 +143,16 @@
     };
 
     add.onclick = () => {
-    modal.classList.remove("hidden");
+    popup.classList.remove("hidden");
     updateSubOptions();
     };
 
     closeButton.onclick = () => {
-    modal.classList.add("hidden");
+    popup.classList.add("hidden");
+    };
+
+    submitButton.onclick = () => {
+    popup.classList.add("hidden");
     };
 
     itemType.onchange = updateSubOptions;

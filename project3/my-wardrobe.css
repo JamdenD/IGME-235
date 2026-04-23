@@ -1,5 +1,5 @@
 		body{
-    		background-color: #ebad9a;
+    		background-color: #f8c5ad;
 			display: grid;
 			grid-template-rows: auto 1fr;
     	}
@@ -70,7 +70,7 @@
 		}
 		
 		#room{
-			background-color: #ebaf9a;
+			background-color: #f8c5ad;
 			border-radius: 20px;
 			flex: 2;
 			position: relative;
@@ -115,7 +115,7 @@
  	 		background-color: rgba(0, 0, 0, 0.2);
 		}
 
-		.modal {
+		.popup {
 		  	position: fixed;
 		  	top: 0;
 		  	left: 0;
@@ -129,7 +129,7 @@
 			z-index:99;
 		}
 		
-		.modal-content {
+		.popup-content {
 			position:relative;
 			z-index:99;
 		  	padding: 20px;
@@ -140,4 +140,23 @@
 		
 		.hidden {
 		  display: none;
+		}
+
+		#itemType, #subItem, #colorPicker {
+			font-family: "Jua", "Poppins", serif;
+		    font-style: bold;
+			border-radius: 15px;
+			font-size: 20px;
+		}
+
+		#closeButton, #submitButton {
+			margin: 20px 20px 0px 0px;
+			font-family: "Jua", "Poppins", serif;
+		    font-style: bold;
+			color: #4c401c;
+			font-size: 16px;
+			border-radius: 15px;
+			border: 5px solid black;
+			border: none;
+			padding:0px 10px;
 		}
