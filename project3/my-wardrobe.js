@@ -2,33 +2,72 @@
     let selectedElement = null;
 
     const TRAY_POSITION = {x:50,y:500};
-    const MAX_WORD_LEFT = 770;
+    const MAX_ITEM_LEFT = 770;
     const LINE_HEIGHT = 30;
-    const WORD_MARGIN = 10;
-    const WORD_SPACING = 8;
+    const ITEM_MARGIN = 10;
+    const ITEM_SPACING = 8;
     const MAX_Z_INDEX = 1000;
 
     window.onload = function(){
-        positionWords();
+        positionItems();
         setupDragging();
+        document.getElementById("add").addEventListener("click", addItem);
     }
 
-    function setPosition(word,wordLeft,wordTop){
-        word.style.left = wordLeft + "px";
-        word.style.top = wordTop + "px";
+    function addItem() {
+        let newItem = document.createElement("img");
+
+        newItem.classList.add("item");
+
+        // default image (you can change this)
+        newItem.src = "images/default.png";
+        newItem.alt = "new item";
+
+        document.body.appendChild(newItem);
+
+        // give it drag behavior
+        newItem.onmousedown = function(e) {
+            e.preventDefault();
+            selectedElement = newItem;
+            selectedElement.style.zIndex = MAX_Z_INDEX;
+        };
+
+        // position it somewhere visible (optional starting spot)
+        setPosition(newItem, 100, 100);
     }
 
-    function getWord(text){
-        let allWords = document.querySelectorAll(".word");
-        for (let word of allWords){
-            if (word.textContent == text){
-                return word; //returns matched word and breaks out of loop
+
+    document.addEventListener("DOMContentLoaded", () => {
+    const buttons = document.querySelectorAll(".dropdown");
+
+    buttons.forEach(button => {
+        button.addEventListener("click", () => {
+            const content = button.nextElementSibling;
+
+            // toggle visibility
+            content.style.display =
+                content.style.display === "block" ? "none" : "block";
+        });
+    });
+});
+
+
+    function setPosition(item,itemLeft,itemTop){
+        item.style.left = itemLeft + "px";
+        item.style.top = itemTop + "px";
+    }
+
+    function getItem(text){
+        let allItems = document.querySelectorAll(".item");
+        for (let item of allItems){
+            if (item.Content == item){
+                return item; //returns matched word and breaks out of loop
             }
         }
         //no match - the function will return undefined
     }
 
-    function positionWords(){
+    function positionItems(){
 
         let doMousedown = function(e){
             e.preventDefault();
@@ -36,21 +75,21 @@
             selectedElement.style.zIndex = MAX_Z_INDEX;
         };
 
-        let allWords = document.querySelectorAll(".word");
-        let wordSpacing = WORD_SPACING;
-        let wordLeft = WORD_MARGIN;
-        let wordTop = TRAY_POSITION.y;
+        let allItems = document.querySelectorAll(".item");
+        let itemSpacing = ITEM_SPACING;
+        let itemLeft = ITEM_MARGIN;
+        let itemTop = TRAY_POSITION.y;
 
-        for (let word of allWords){
-            setPosition(word,wordLeft,wordTop)
-            let wordWidth = word.clientWidth;
-            wordLeft += wordWidth + wordSpacing
-            if (wordLeft >= MAX_WORD_LEFT){
-                wordLeft = WORD_MARGIN;
-                wordTop += LINE_HEIGHT;
+        for (let item of allItems){
+            setPosition(item,itemLeft,itemTop)
+            let itemWidth = item.clientWidth;
+            itemLeft += itemWidth + itemSpacing
+            if (itemLeft >= MAX_ITEM_LEFT){
+                itemLeft = ITEM_MARGIN;
+                itemTop += LINE_HEIGHT;
             }
 
-            word.onmousedown = doMousedown;
+            item.onmousedown = doMousedown;
         }
 
     } //end positionWords
@@ -86,3 +125,42 @@
             y: event.clientY - rect.top
         };
     }
+
+
+    // Functions for the add new item modal
+    const add = document.getElementById("add");
+    const modal = document.getElementById("modal");
+    const closeButton = document.getElementById("closeButton");
+    const itemType = document.getElementById("itemType");
+    const subItem = document.getElementById("subItem");
+
+    // sub-options for each main option
+    const data = {
+    Tops: ["Shirt", "Blouse", "Mini Dress"],
+    Bottoms: ["Shorts", "Pants", "Short Skirt", "Long Skirt"],
+    Shoes: ["Sneakers", "Flats"],
+    Accessories: ["Necklace", "Earrings", "Gloves"]
+    };
+
+    add.onclick = () => {
+    modal.classList.remove("hidden");
+    updateSubOptions();
+    };
+
+    closeButton.onclick = () => {
+    modal.classList.add("hidden");
+    };
+
+    itemType.onchange = updateSubOptions;
+
+    function updateSubOptions() {
+    const selected = mainOption.value;
+    subOption.innerHTML = "";
+
+    data[selected].forEach(item => {
+        const opt = document.createElement("option");
+        opt.value = item;
+        opt.textContent = item;
+        subOption.appendChild(opt);
+    });
+}

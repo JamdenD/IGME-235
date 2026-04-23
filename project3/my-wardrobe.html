@@ -2,19 +2,71 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
-    <title>Word Magnets</title>
+    <title>My Wardrobe <3</title>
     <link rel="stylesheet" type="text/css" href="my-wardrobe.css">
-    <script src="my-wardrobe.js"></script>
+    <script src="my-wardrobe.js" defer></script>
 </head>
 <body>
     <header>
-        <h1>My Wardrobe</h1>
+        <h1>My Wardrobe <3</h1>
     </header>
     <div id="container">
         <div id="wardrobe">
-            <p>This is where the wardrobe is</p>
+            <h2>Wardrobe</h2>
+            <div class="section">
+                <button class="dropdown">Tops</button>
+                <div class="content">
+                    <p class="item">shirt</p>
+                    <p class="item">dress</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <button class="dropdown">Bottoms</button>
+                <div class="content">
+                    <p class="item">shorts</p>
+                    <p class="item">skirt</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <button class="dropdown">Shoes</button>
+                <div class="content">
+                    
+                </div>
+            </div>
+
+            <div class="section">
+                <button class="dropdown">Accessories</button>
+                <div class="content">
+                    
+                </div>
+            </div>
         </div>
 	    <div id="room">
+            <button id="add">+</button>
+
+            <div id="modal" class="modal hidden">
+                <div class="modal-content">
+                    <h2>Create New Item</h2>
+                        <select id="itemType">
+                            <option value="tops">Tops</option>
+                            <option value="bottoms">Bottoms</option>
+                            <option value="shoes">Shoes</option>
+                            <option value="accessories">Accessories</option>
+                        </select>
+
+                        <select id="subItem"></select>
+                        
+                        <input type="color" id="colorPicker">
+
+                        <div class="modal-buttons">
+                            <button id="closeButton">Close</button>
+                            <button id="submitButton">Submit</button>
+                        </div>
+                </div>
+            </div>
+
             <p> this is the main room area</p>
             <div id="character">
                 <p>this is where the character goes</p>
