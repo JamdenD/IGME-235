@@ -1,5 +1,5 @@
 		body{
-    		background-color: #ebad9a;
+    		background-color: #fecfbe;
 			display: grid;
 			grid-template-rows: auto 1fr;
     	}
@@ -15,18 +15,18 @@
 		    font-family: "Jua", "Poppins", serif;
 		    font-style: bold;
 		    font-size: 64px;
-		    color: #ebaf9a;
-		    text-shadow: 5px 4px 2px #794040;
+		    color: #f7728f;
+		    text-shadow: 5px 4px 2px #6d0b46;
 		}
 
 		h2 {
 			font-family: "Jua", "Poppins", serif;
 		    font-style: bold;
-			color: #ebaf9a;
+			color: #f1bc52;
 		    text-shadow: 5px 4px 2px #351515;
 			font-size: 32px;
 			margin: 10px;
-			background-color: #4b2323;
+			background-color: #4b2a23;
 			border-radius: 15px;
 
 			display: flex;
@@ -35,7 +35,7 @@
 		}
 
 		header{
-			background-color: #3e3417;
+			background-color: #f1bc52;
 			height:100px;
 			width:100%;
 			
@@ -50,31 +50,36 @@
 		}
 
 		#wardrobe{
-			background-color: #794040;
+			background-color: #6a391e;
 			flex: 1;
 			border-radius: 15px;
 			margin: 10px 20px 20px 0px;
-			height: 87vh;
+			height: auto;
+			overflow: visible;
 		}
 
 		#add {
 			margin: 10px 20px 20px 0px;
-			background-color: #794040;
+			background-color: #6a391e;
 			font-family: "Jua", "Poppins", serif;
 		    font-style: bold;
 			color: #ebaf9a;
-			font-size: 32px;
+			font-size: 30px;
 			border-radius: 15px;
 			border: none;
-			padding:0px 10px;
+			padding:5px 12px 0px 12px;
 		}
 		
 		#room{
-			background-color: #ebaf9a;
+			background-color: #fecfbe;
 			border-radius: 20px;
-			flex: 2;
+			flex: 3;
 			position: relative;
     		z-index: 1;
+		}
+
+		#character {
+			padding: 0px 200px 0px 200px;
 		}
 
 		.section {
@@ -88,6 +93,7 @@
 		    width: 100%;
 		    text-align: left;
 			background-color: rgba(0, 0, 0, 0);
+			color:#f5a4a4;
 		    cursor: pointer;
 			position:static;
 			border-radius:10px;
@@ -106,6 +112,18 @@
 		    display: none;
 		    padding-left: 10px;
 		}
+
+		.content .item {
+			display: inline-block;
+    		width: 60px;
+    		margin: 5px;
+    		cursor: grab;
+    		position: static;
+
+    		background-size: contain;
+    		background-repeat: no-repeat;
+    		background-position: center;
+		}
 		
 		button{
     		cursor: move;
@@ -119,25 +137,90 @@
 		  	position: fixed;
 		  	top: 0;
 		  	left: 0;
-		  	width: 100%;
-		  	height: 100%;
+		  	width: 100vw;
+		  	height: 100vh;
 		  	background: rgba(0,0,0,0.5);
 		  	display: flex;
 		  	justify-content: center;
 		  	align-items: center;
 			
-			z-index:99;
+			z-index:3000 !important;
+		}
+
+		.modal select {
+    		padding: 10px;
+    		margin: 10px 0;
+
+			font-family: "Jua", "Poppins", serif;
+			font-size: 18px;
+			color: #4b2323;
+
+			background-color: #ebaf9a;
+    		border: 2px solid #4b2323;
+    		border-radius: 10px;
+		}
+
+		#closeButton, #submitButton, #clearWardrobe {
+			padding: 10px;
+    		margin: 10px 0;
+
+			font-family: "Jua", "Poppins", serif;
+			font-size: 18px;
+			color: #4b2323;
+
+			background-color: #ebaf9a;
+    		border: 2px solid #4b2323;
+    		border-radius: 10px;
+		}
+
+		#colorPicker {
+		    height: 40px;
+		    margin: 10px 0;
+			background-color: #ebaf9a;
+		    border: 2px solid #4b2323;
+		    border-radius: 10px;
+		    cursor: pointer;
 		}
 		
 		.modal-content {
 			position:relative;
-			z-index:99;
 		  	padding: 20px;
 		  	border-radius: 10px;
-			background-color: #4c401c;
+			background-color: #f1bc52;
 		  	width: 300px;
+
+			z-index: 3001 !important;
+		}
+
+		.modal.hidden {
+			display: none !important;
 		}
 		
 		.hidden {
 		  display: none;
+		}
+
+		.item {
+			position: relative;
+			
+
+			isolation:isolate;
+		}
+
+		.item::after {
+			mix-blend-mode:multiply;
+		}
+
+		.item img {
+		    width: 100%;
+		    height: 100%;
+		    display: block;
+		}
+
+		.color-overlay {
+		    position: absolute;
+		
+		    mix-blend-mode: multiply;
+		
+		    pointer-events: none;
 		}
